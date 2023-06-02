@@ -11,7 +11,7 @@ public class Vetor<T> {
     }
 
     public void inserir(T string, int mod) {
-        mod = mod%tamanho;
+        mod = mod % tamanho;
         this.vetor[mod] = string;
         System.out.print("Time: ");
         //mostrando o vetor
@@ -21,7 +21,7 @@ public class Vetor<T> {
     }
 
     public void inseririInt(T pont, int mod) {
-        mod = mod%tamanho;
+        mod = mod % tamanho;
         this.vetor[mod] = pont;
         System.out.println("");
         System.out.print("Pontuação: ");
@@ -31,8 +31,8 @@ public class Vetor<T> {
         }
     }
 
-    public void inserirFloat(T media,int mod) {
-        mod = mod%tamanho;
+    public void inserirFloat(T media, int mod) {
+        mod = mod % tamanho;
         this.vetor[mod] = media;
         System.out.println("");
         System.out.print("Média gols: ");
@@ -42,11 +42,29 @@ public class Vetor<T> {
         }
     }
 
-    public void buscar(String chave) {
 
+    public void buscar(T chave) {
+        for (int i = 0; i < this.tamanho; i++) {
+            if (this.vetor[i] != null && this.vetor[i].equals(chave)) {
+                System.out.println("Elemento encontrado na posição " + i);
+                return;
+            }
+        }
+        System.out.println("Elemento não encontrado na tabela hash.");
     }
 
-    public void remove(int mod, T remove) {
+    public void remove(int mod, T elemento) {
+        mod %= this.tamanho;
+
+        if (this.vetor[mod] != null && this.vetor[mod].equals(elemento)) {
+            this.vetor[mod] = null;
+            System.out.println("Elemento removido com sucesso.");
+        } else {
+            System.out.println("Elemento não encontrado na posição " + mod);
+        }
+    }
+
+    public int hash() {
 
     }
 }

@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int tamanho,mod,pont,gols,jogos;
-        String string;
+        String string,busca;
         float media;
         // Definindo o tamanho do vetor
         System.out.println("Tamanho Vetor: ");
@@ -30,5 +30,8 @@ public class Main {
             vetorInt.inseririInt(pont,mod);
             vetorFloat.inserirFloat(media,mod);
         }
+        System.out.println("Time a ser buscado");
+        busca = scanner.next();
+        vetor.buscar();
     }
 }

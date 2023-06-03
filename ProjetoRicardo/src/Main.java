@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int tamanho,hash,pont,gols,jogos;
-        String string,busca;
+        int tamanho,pont,gols,jogos,pesq = 1;
+        String string,chave;
         float media;
         // Definindo o tamanho do vetor
         System.out.println("Tamanho Vetor: ");
@@ -33,8 +33,9 @@ public class Main {
             vetorFloat.hash(string);
             vetorFloat.inserirFloat(media);
         }
-        System.out.println("Time a ser buscado");
-        busca = scanner.next();
-       //3 vetor.buscar();
+        System.out.println("");
+        System.out.print("Time a ser buscado: ");
+        chave = scanner.next();
+        vetor.buscar(chave);
     }
 }

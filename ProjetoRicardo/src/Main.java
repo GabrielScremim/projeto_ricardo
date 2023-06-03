@@ -28,7 +28,9 @@ public class Main {
             media = gols/jogos;
             vetor.hash(string);
             vetor.inserir(string);
+            vetorInt.hash(string);
             vetorInt.inseririInt(pont);
+            vetorFloat.hash(string);
             vetorFloat.inserirFloat(media);
         }
         System.out.println("Time a ser buscado");

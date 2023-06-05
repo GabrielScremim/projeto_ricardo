@@ -39,32 +39,50 @@ public class Vetor<T> {
         }
     }
 
+    public void mostrar() {
+        System.out.println(this.vetor[hash]);
+    }
 
+    public void mostrarInt() {
+        System.out.println(this.vetor[hash]);
+    }
+
+
+    public void mostrarFloat(){
+        System.out.println(this.vetor[hash]);
+    }
     public void buscar(T chave) {
         for (int i = 0; i < this.tamanho; i++) {
             if (this.vetor[i] != null && this.vetor[i].equals(chave)) {
-                System.out.println("Elemento encontrado na posição " + i);
+                System.out.println("Elemento encontrado:  ");
                 return;
             }
         }
         System.out.println("Elemento não encontrado na tabela hash.");
     }
 
-    public void remove(int hash, T elemento) {
-        hash %= this.tamanho;
-        if (this.vetor[hash] != null && this.vetor[hash].equals(elemento)) {
+    public void remove() {
+        if (this.vetor[hash] != null) {
             this.vetor[hash] = null;
             System.out.println("Elemento removido com sucesso.");
+            //mostrando o vetor após remoção
+            for (int i = 0; i < this.tamanho; i++) {
+                System.out.print(this.vetor[i] + " , ");
+            }
         } else {
             System.out.println("Elemento não encontrado na posição " + hash);
         }
     }
 
     public int hash(String string) {
-        hash = string.length();
-        hash = hash % tamanho;
+        int a = 31; // qualquer numero primo
+        for (int i = 0; i < string.length(); i++) {
+            hash = (a * hash + string.charAt(i));
+        }
+        hash %= this.tamanho;
         return hash;
     }
 }
+
 
 

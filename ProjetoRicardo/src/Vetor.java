@@ -40,16 +40,16 @@ public class Vetor<T> {
     }
 
     public void mostrar() {
-        System.out.println(this.vetor[hash]);
+        System.out.println("Time: " + this.vetor[hash]);
     }
 
     public void mostrarInt() {
-        System.out.println(this.vetor[hash]);
+        System.out.println("Pontuação: " + this.vetor[hash]);
     }
 
 
     public void mostrarFloat(){
-        System.out.println(this.vetor[hash]);
+        System.out.println("Média de gols: " + this.vetor[hash]);
     }
     public void buscar(T chave) {
         for (int i = 0; i < this.tamanho; i++) {

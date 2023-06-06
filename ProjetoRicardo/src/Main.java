@@ -34,6 +34,7 @@ public class Main {
             vetorFloat.inserirFloat(media);
         }
         while (pesq != 3) {
+            System.out.println("");
             System.out.println("1-Buscar");
             System.out.println("2-Remover");
             System.out.println("3-Sair");
@@ -52,6 +53,8 @@ public class Main {
                 chave = scanner.next();
                 vetor.hash(chave);
                 vetor.remove();
+                vetorInt.remove();
+                vetorFloat.remove();
             } else {
                 System.out.println("thanks!");
             }

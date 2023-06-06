@@ -10,79 +10,45 @@ public class Vetor<T> {
         this.vetor = (T[]) new Object[capacidade];
     }
 
-    public void inserir(T string) {
-        this.vetor[hash] = string;
-        System.out.print("Time: ");
-        //mostrando o vetor
-        for (int i = 0; i < this.tamanho; i++) {
-            System.out.print(this.vetor[i] + " , ");
-        }
+    public void inserir(T elemento) {
+        this.vetor[hash] = elemento;
+        System.out.println(hash);
     }
 
-    public void inseririInt(T pont) {
-        this.vetor[hash] = pont;
-        System.out.println("");
-        System.out.print("Pontuação: ");
-        //mostrando o vetor
-        for (int i = 0; i < this.tamanho; i++) {
-            System.out.print(this.vetor[i] + " , ");
-        }
+    public void mostrar(int i) {
+        System.out.print(this.vetor[i] + ", ");
     }
 
-    public void inserirFloat(T media) {
-        this.vetor[hash] = media;
-        System.out.println("");
-        System.out.print("Média gols: ");
-        //mostrando o vetor
-        for (int i = 0; i < this.tamanho; i++) {
-            System.out.print(this.vetor[i] + " , ");
-        }
+    public void pesquisar() {
+        System.out.print(this.vetor[hash] + ", ");
     }
 
-    public void mostrar() {
-        System.out.println("Time: " + this.vetor[hash]);
-    }
-
-    public void mostrarInt() {
-        System.out.println("Pontuação: " + this.vetor[hash]);
-    }
-
-
-    public void mostrarFloat(){
-        System.out.println("Média de gols: " + this.vetor[hash]);
-    }
     public void buscar(T chave) {
-        for (int i = 0; i < this.tamanho; i++) {
-            if (this.vetor[i] != null && this.vetor[i].equals(chave)) {
-                System.out.println("Elemento encontrado:  ");
-                return;
-            }
+        int h = hash(chave.toString());
+        if (this.vetor[h] != null && this.vetor[h].equals(chave)) {
+            System.out.println("Elemento encontrado na posição " + h);
+            System.out.println(this.vetor[h]);
+        } else {
+            System.out.println("Elemento não encontrado na tabela hash.");
         }
-        System.out.println("Elemento não encontrado na tabela hash.");
     }
+
 
     public void remove() {
         if (this.vetor[hash] != null) {
             this.vetor[hash] = null;
-            System.out.println("Elemento removido com sucesso.");
-            //mostrando o vetor após remoção
-            for (int i = 0; i < this.tamanho; i++) {
-                System.out.print(this.vetor[i] + " , ");
-            }
         } else {
             System.out.println("Elemento não encontrado na posição " + hash);
         }
     }
 
     public int hash(String string) {
-        int a = 31; // qualquer numero primo
+        int p = 31; // número primo para calcular o hash
+        int a = 17; // fator de multiplicação adicional
         for (int i = 0; i < string.length(); i++) {
-            hash = (a * hash + string.charAt(i));
+            hash = (hash * p + (string.charAt(i) - 'a' + 1)) % this.tamanho;
+            p = (p * a) % this.tamanho;
         }
-        hash %= this.tamanho;
         return hash;
     }
 }
-
-
-

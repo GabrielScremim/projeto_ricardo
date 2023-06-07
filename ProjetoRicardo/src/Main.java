@@ -52,32 +52,32 @@ public class Main {
                 System.out.println("Time a ser removido");
                 chave = scanner.next();
 
-                System.out.print("Time = ");
-                vetor.hash(chave);
-                vetor.remove();
+                for (int i = 0; i < 1; i++) {
 
-                System.out.print("Pontuação = ");
-                vetorInt.hash(chave);
-                vetorInt.remove();
 
-                System.out.print("Média de gols = ");
-                vetorFloat.hash(chave);
-                vetorFloat.remove();
+                    System.out.print("Time = ");
+                    vetor.hash(chave);
+                    vetor.remove();
+                    vetor.mostrar(i);
+
+                    System.out.print("Pontuação = ");
+                    vetorInt.hash(chave);
+                    vetorInt.remove();
+                    vetorInt.mostrar(i);
+
+                    System.out.print("Média de gols = ");
+                    vetorFloat.hash(chave);
+                    vetorFloat.remove();
+                    vetorFloat.mostrar(i);
+                }
 
             }else if (pesq ==3){
-                System.out.print("Time: ");
+                System.out.println("Time | " + "Pontuação | " + "Média de gols |");
                 for (int i = 0; i < tamanho; i++) {
                     vetor.mostrar(i);
-                }
-                System.out.println(" ");
-                System.out.print("Pontuação: ");
-                for (int i = 0; i < tamanho; i++) {
                     vetorInt.mostrar(i);
-                }
-                System.out.println(" ");
-                System.out.print("Média de gols: ");
-                for (int i = 0; i < tamanho; i++) {
                     vetorFloat.mostrar(i);
+                    System.out.println("");
                 }
             } else {
                 System.out.println("thanks!");

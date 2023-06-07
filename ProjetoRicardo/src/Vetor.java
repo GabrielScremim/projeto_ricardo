@@ -12,20 +12,15 @@ public class Vetor<T> {
 
     public void inserir(T elemento) {
         this.vetor[hash] = elemento;
-        System.out.println(hash);
     }
 
     public void mostrar(int i) {
-        System.out.print(this.vetor[i] + ", ");
-    }
-
-    public void pesquisar() {
-        System.out.print(this.vetor[hash] + ", ");
+        System.out.print(this.vetor[i] + " | ");
     }
 
     public void buscar(T chave) {
         int h = hash(chave.toString());
-        if (this.vetor[h] != null && this.vetor[h].equals(chave)) {
+        if (this.vetor[h] != null && this.vetor[h].equals(h)) {
             System.out.println("Elemento encontrado na posição " + h);
             System.out.println(this.vetor[h]);
         } else {
@@ -43,12 +38,12 @@ public class Vetor<T> {
     }
 
     public int hash(String string) {
-        int p = 31; // número primo para calcular o hash
-        int a = 17; // fator de multiplicação adicional
+        int a = 31; // qualquer numero primo
         for (int i = 0; i < string.length(); i++) {
-            hash = (hash * p + (string.charAt(i) - 'a' + 1)) % this.tamanho;
-            p = (p * a) % this.tamanho;
+            hash = (hash + string.charAt(i) * a);
         }
+        hash %= this.tamanho;
         return hash;
     }
 }
+
